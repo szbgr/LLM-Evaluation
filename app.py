@@ -24,7 +24,7 @@ def main():
     # Step 1: Choose your JSON source
     st.markdown("### Step 1: Choose your JSON source")
     st.caption(
-        "Note: You can either upload a JSON file or use a preexisting example with 5 logic basic knowledge questions evaluated by ChatGPT 4. You can only evaluate one file at a time.")
+        "You can either upload a JSON file or use a preexisting example with five basic knowledge logic questions evaluated by ChatGPT 4. You can only evaluate one file at a time.")
     source_option = st.radio("Choose a JSON source", ('Upload File', 'Use Example'))
 
     data = []
@@ -36,7 +36,7 @@ def main():
             data = json.load(uploaded_file)
     else:
         data = load_example_json()
-        st.info("Using the preexisting example with 5 logic basic knowledge questions.")
+        st.info("Using the preexisting example with five basic knowledge logic questions.")
 
     if data:
         user_feedback = {str(i): {'rating': None, 'comment': ''} for i in range(len(data))}
