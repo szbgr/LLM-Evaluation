@@ -1,0 +1,52 @@
+[
+    {
+        "question_id": "1",
+        "prompt": "Identify the truth constants, literals, variables, and clauses of the following formula:\n$$\n(x \\vee y) \\wedge(z \\vee \\neg y \\vee T) \\wedge(x)\n$$",
+        "output": "1. Truth Constants: The truth constant in this formula is T.\n   \n2. Literals: The literals in this formula are x, y, z, \u00acy, and T. Literals are either variables or the negation of these variables. The truth constant T is also considered as a literal.\n\n3. Variables: The variables in this formula are x, y, and z.\n\n4. Clauses: A clause is a disjunction of literals. The clauses in this formula are (x \u2228 y), (z \u2228 \u00acy \u2228 T), and (x). The whole formula is a conjunction of these clauses.",
+        "rating": "",
+        "errorcodes": [],
+        "warningcodes": [],
+        "comment": "",
+        "timestamp": "2024-02-01"
+    },
+    {
+        "question_id": "2",
+        "prompt": "The following formula is given\n$$\n\\bigwedge_{i=1}^2 \\bigvee_{j=1}^3 l_{i j}\n$$\n\nExpand this formula and write it down with $\\vee$ and $\\wedge$. Furthermore, write it down in set notation.",
+        "output": "The formula given is in conjunctive normal form, which is a conjunction (AND operations, represented by $\\wedge$) of disjunctions (OR operations, represented by $\\vee$). \n\nWhen we expand this formula, it is:\n\n$$\n(l_{11} \\vee l_{12} \\vee l_{13}) \\wedge (l_{21} \\vee l_{22} \\vee l_{23})\n$$\n\nIn set notation, this could be expressed as:\n\n$$\n\\{ l_{11}, l_{12}, l_{13} \\} \\cap \\{ l_{21}, l_{22}, l_{23} \\}\n$$\n\nPlease note that the set notation represents the conjunctive (AND) operations as intersections and the disjunctive (OR) operations as elements within these sets.",
+        "rating": "",
+        "errorcodes": [],
+        "warningcodes": [],
+        "comment": "",
+        "timestamp": "2024-02-01"
+    },
+    {
+        "question_id": "3",
+        "prompt": "The empty clause is ...\n- (a) ... always true.\n- (b) ... always false.\n- (c) ... true if the rest of the formula is true.",
+        "output": "- (b) ... always false.",
+        "rating": "",
+        "errorcodes": [],
+        "warningcodes": [],
+        "comment": "",
+        "timestamp": "2024-02-01"
+    },
+    {
+        "question_id": "4",
+        "prompt": "How many models does the empty clause have?",
+        "output": "The empty clause has zero models. This is because the empty clause symbolizes a contradiction, which is always false and hence, cannot be satisfied or modeled.",
+        "rating": "",
+        "errorcodes": [],
+        "warningcodes": [],
+        "comment": "",
+        "timestamp": "2024-02-01"
+    },
+    {
+        "question_id": "5",
+        "prompt": "What do the rules of De Morgan say?\n- (a) $\\neg(a \\vee b) \\Leftrightarrow(\\neg a \\wedge \\neg b)$\n- (b) $\\neg(a \\wedge b) \\Leftrightarrow(\\neg a \\vee \\neg b)$\n- (c) $\\neg(a \\vee b) \\Leftrightarrow(\\neg a \\wedge \\neg b)$\n- (d) $a \\wedge(b \\vee a) \\Leftrightarrow a$",
+        "output": "De Morgan's laws are fundamental laws in boolean algebra and propositional logic, stating the equivalence between certain logical expressions. They are named after the British mathematician Augustus De Morgan.\nAccording to De Morgan's laws:\n\n- The negation of a conjunction is the disjunction of the negations. It can be mathematically stated as follows: \u00ac(a \u2227 b) \u21d4 \u00aca \u2228 \u00acb. It means if \"a AND b\" is not true, then \"NOT a OR NOT b\" is true and vice versa.\n  \n- The negation of a disjunction is the conjunction of the negations. Mathematically written as: \u00ac(a \u2228 b) \u21d4 \u00aca \u2227 \u00acb. It means if \"a OR b\" is not true (they're not both true), then \"NOT a AND NOT b\" is true and vice versa.\n\nTherefore, options (a) and (b) correctly state De Morgan's laws, while options (c) is repeating the same rule as option (a) and option (d) doesn't represent any of De Morgan's laws.",
+        "rating": "",
+        "errorcodes": [],
+        "warningcodes": [],
+        "comment": "",
+        "timestamp": "2024-02-01"
+    }
+]
