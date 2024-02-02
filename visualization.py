@@ -32,71 +32,50 @@ def extract_ratings(data):
 def ratings_to_df(ratings, category_name):
     """Convert a list of ratings into a DataFrame with the specified category name as the column."""
     return pd.DataFrame(ratings, columns=[category_name])
+
+
 def plot_data(ratings_df):
     fig = go.Figure()
 
     ratings = ratings_df.iloc[:, 0].dropna().astype(int)
     counts = ratings.value_counts().sort_index()
-
-    # Total number of ratings, which will be used to calculate percentages
     total_ratings = len(ratings)
 
-    # Initialize a list to keep track of the order of bars
-    ordered_bars = []
-
-    # Adding actual traces for the ratings
-    for rating in [2, 1]:  # Reverse order for the negative side
-        count = counts.get(rating, 0)
-        percent = count / total_ratings * 100
-        color = get_color(rating)
-
-        # Append a trace for the negative side
-        ordered_bars.append(go.Bar(
-            x=[-percent],
+    # Add dummy traces for the legend in the correct order
+    for rating in range(1, 6):
+        fig.add_trace(go.Bar(
+            x=[0],
             y=["Ratings"],
             name=f"{rating}: {get_description(rating)}",
             orientation='h',
-            marker=dict(color=color),
-            hoverinfo='text',
-            hovertext=f"{rating}: {count} ({percent:.1f}%)",
+            marker=dict(color=get_color(rating)),
+            showlegend=True
         ))
 
-    for rating in [3, 4, 5]:  # Keep the order for the positive side
+    # Add actual data traces without showing in the legend
+    for rating in [2, 1] + list(range(3, 6)):
         count = counts.get(rating, 0)
         percent = count / total_ratings * 100
-        color = get_color(rating)
-
-        # Append a trace for the positive side
-        ordered_bars.append(go.Bar(
-            x=[percent],
+        fig.add_trace(go.Bar(
+            x=[-percent if rating <= 2 else percent],
             y=["Ratings"],
-            name=f"{rating}: {get_description(rating)}",
             orientation='h',
-            marker=dict(color=color),
+            marker=dict(color=get_color(rating)),
             hoverinfo='text',
             hovertext=f"{rating}: {count} ({percent:.1f}%)",
+            showlegend=False  # Hide these traces from the legend
         ))
-
-    # Add all traces to the figure in the correct order
-    for bar in ordered_bars:
-        fig.add_trace(bar)
 
     # Update layout
     fig.update_layout(
         barmode='relative',
         title='Ratings Distribution',
-        xaxis=dict(title='Percentage', range=[-100, 100], tickvals=list(range(-100, 110, 10))),
+        xaxis=dict(title='Percentage', range=[-100, 100]),
         yaxis=dict(title='Ratings', showticklabels=False),
         plot_bgcolor='rgba(248, 248, 255, 0.6)',
         paper_bgcolor='rgba(248, 248, 255, 0.6)',
-        showlegend=True,
-        legend=dict(
-            orientation="h",
-            yanchor="bottom",
-            y=1.02,
-            xanchor="right",
-            x=1
-        )
+        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1)
     )
 
     return fig
+
