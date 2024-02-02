@@ -1,2 +1,2 @@
 # LLM-Evaluation
-Rating and visualising responses from LLMs.
+Rating and visualizing responses from LLMs.
