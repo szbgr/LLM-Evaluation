@@ -1,6 +1,12 @@
 
 <img width="916" alt="Screenshot 2024-02-02 at 14 27 27" src="https://github.com/szbgr/LLM-Evaluation/assets/108993867/5ae4f708-f990-4012-99c4-75f686317fb1">
 
+# Group Members
+| Name                | Matrikelnummer  |     
+| --------------------|-----------------|
+| Greta Szabo         | 12118561        | 
+| Christoph Wittner   | 12045895        | 
+| Patrick Mair        | 12116889        |
 
 Check out our website:
 
